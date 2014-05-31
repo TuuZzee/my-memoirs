@@ -1,0 +1,1 @@
+MyMemoirs::Application.config.secret_key_base = 'f6a2d42faf24c0c96dd0cfc36748d9cb5e166888cac9d1b12656795a0fccb21a287f94d58204e406f443d6a2859a3527c5f538fca999df9fabcc16873f55a2d5'
