@@ -1,6 +1,6 @@
 MyMemoirs::Application.routes.draw do
   
-  get "users/new"
+  resources :users
 
   # Static pages Routes
   root  'static_pages#home'
