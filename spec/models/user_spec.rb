@@ -5,10 +5,10 @@ describe User do
 
 	before do
   		@user = User.new(
-  				name: "Test User", 
-  				email: "test.user@example.com",
-  				password: "M0t2p@ss",
-  				password_confirmation: "M0t2p@ss")
+  				name: "Guillaume Becker", 
+  				email: "guillaume.becker@example.com",
+  				password: "mot2pass",
+  				password_confirmation: "mot2pass")
   	end
 
 
@@ -19,6 +19,7 @@ describe User do
   	it { should respond_to(:password_digest) }
   	it { should respond_to(:password) }
   	it { should respond_to(:password_confirmation) }
+    it { should respond_to(:remember_token) }
   	it { should respond_to(:authenticate) }
 
   	it { should be_valid }
@@ -112,5 +113,10 @@ describe User do
       		specify { expect(user_for_invalid_password).to be_false }
     	end
   	end
+
+    describe "rememer tocken" do
+      before { @user.save }
+      its(:remember_token) { should_not be_blank }
+    end
 
 end

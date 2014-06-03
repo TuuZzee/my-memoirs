@@ -40,24 +40,34 @@ describe "User Pages" do
     	end
 
     	describe "with valid information" do
-	      	before do
-		        fill_in "Name",         with: "Guillaume Becker"
-		        fill_in "Email",        with: "guillaume.becker@yopmail.com"
-		        fill_in "Password",     with: "mot2pass"
-		        fill_in "Confirmation", with: "mot2pass"
-	      	end
+      	before do
+	        fill_in "Name",         with: "Guillaume Becker"
+	        fill_in "Email",        with: "guillaume.becker@yopmail.com"
+	        fill_in "Password",     with: "mot2pass"
+	        fill_in "Confirmation", with: "mot2pass"
+      	end
 
-	      	it "should create a user" do
-        		expect { click_button submit }.to change(User, :count).by(1)
-      		end
+      	it "should create a user" do
+      		expect { click_button submit }.to change(User, :count).by(1)
+    		end
 
-      		describe "after submit" do
-      			before { click_button submit }
-      			let(:user) {User.find_by(email: 'guillaume.becker@yopmail.com') }
+    		describe "after submit" do
+    			before { click_button submit }
+    			let(:user) {User.find_by(email: 'guillaume.becker@yopmail.com') }
 
-      			it { should have_title(user.name) }
-      			it { should have_selector('div.alert.alert-success', text: 'Welcome') }
-      		end
+    			it { should have_title(user.name) }
+    			it { should have_selector('div.alert.alert-success', text: 'Welcome') }
+    		end
+
+        describe "after saving the user" do
+          before { click_button submit }
+          let(:user) { User.find_by(email: 'guillaume.becker@yopmail.com') }
+
+          it { should have_link("Sign out") }
+          it { should have_title(user.name) }
+          it { should have_selector('div.alert.alert-success') }
+        end
+
     	end
   	end
 end
