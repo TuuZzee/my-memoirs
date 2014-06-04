@@ -36,6 +36,100 @@ textarea {
   }
 }
 
+/* CSS header */
+
+body {
+}
+
+.container {
+  width: 978px;
+}
+
+.first {
+  padding-left: 0 !important;
+}
+
+.last {
+  padding-right: 0 !important;
+}
+
+.top-area {
+  font-family: Arial;
+  font-size: 12px;
+}
+
+.top-area .section {
+  padding-top: 20px;
+}
+
+.top-area-link {
+  width: 251px;
+}
+
+.top-area-link div {
+  display: inline-block;
+}
+
+.top-area-link *{
+  color: #8d8d8d;
+}
+
+.lang a {
+  padding-right: 10px;
+  padding-left: 10px;
+}
+
+.sign {
+  padding-left: 12px;
+}
+
+.sign a{
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.search {
+  display: inline-block;
+  width: auto;
+  height: 30px;
+  margin-top : 0;
+  color: #adadad;
+}
+
+.search img{
+  display: inline-block;
+}
+
+.search input {
+  width: 221px;
+}
+
+.search *{
+  background-color: #f1f1f1;
+}
+
+.navbar-default {
+  background-color: #545e6c;
+}
+
+.navbar-default .navbar-nav > li > a {
+  font-size: 14px;
+  color: #ffffff;
+  padding-right: 120px;
+}
+
+.navbar-default .navbar-nav > li > a > span {
+  padding-bottom: 13px;
+}
+
+.navbar-default .navbar-nav > li > a:hover {
+  color: #ffffff;
+}
+
+.navbar-default .navbar-nav > li > a > span:hover {
+  color: #2dceb0;
+  border-bottom: 4px solid #2dceb0;
+}
 
 
 /* typography */
