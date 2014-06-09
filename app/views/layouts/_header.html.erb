@@ -35,7 +35,7 @@
         <li><a><span><%= link_to "Home", root_path %></span></a></li>
         <li><a href="#"><span>Story</span></a></li>
         <% if signed_in? %>
-          <li><a><span><%= link_to "Profile", current_user %></span></a></li>
+          <li><a><span><%= link_to "My Page", current_user %></span></a></li>
         <% else %>
           <li><a href="#"><span>My Page</span></a></li>
         <% end %>

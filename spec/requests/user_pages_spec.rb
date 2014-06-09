@@ -1,9 +1,35 @@
 require 'spec_helper'
 
 # UnitTests for the User pages
-describe "User Pages" do
+describe "User pages" do
 
-	subject { page }
+  subject { page }
+
+  describe "index" do
+    let(:user) { FactoryGirl.create(:user) }
+    before(:each) do
+      sign_in user
+      visit users_path
+    end
+
+    it { should have_title('All users') }
+    it { should have_content('All users') }
+
+    describe "pagination" do
+
+      before(:all) { 30.times { FactoryGirl.create(:user) } }
+      after(:all)  { User.delete_all }
+
+      it { should have_selector('div.pagination') }
+
+      it "should list each user" do
+        User.paginate(page: 1).each do |user|
+          expect(page).to have_selector('li', text: user.name)
+        end
+      end
+    end
+  end
+
 
 	describe "signup page" do
     before { visit signup_path }
@@ -19,16 +45,16 @@ describe "User Pages" do
     let(:submit) { "Create my account" }
 
     describe "with invalid information" do
-    		it "should not create a user" do
-      		expect { click_button submit }.not_to change(User, :count)
-    		end
+  		it "should not create a user" do
+    		expect { click_button submit }.not_to change(User, :count)
+  		end
 
-    		describe "after submit" do
-    			before { click_button submit }
+  		describe "after submit" do
+  			before { click_button submit }
 
-    			it { should have_title('Sign up') }
-    			it { should have_content('error') }
-    		end
+  			it { should have_title('Sign up') }
+  			it { should have_content('error') }
+  		end
   	end
 
   	describe "with valid information" do
