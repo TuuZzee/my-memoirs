@@ -7,9 +7,9 @@
       </div>
       <div class="sign">
         <% if signed_in? %>
-          <a><%= link_to "Sign out", signout_path, method: "delete" %></a>
+          <%= link_to "Sign out", signout_path, method: "delete" %>
         <% else %>
-        <a><%= link_to "Sign in", signin_path %></a>|<a class="last"><%= link_to "Sign up", signup_path %></a>
+        <%= link_to "Sign in", signin_path %>|<%= link_to "Sign up", signup_path, class: "last" %>
         <% end %>
       </div>
     </div>
@@ -32,14 +32,14 @@
     </div>
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav pull-right">
-        <li><a><span><%= link_to "Home", root_path %></span></a></li>
+        <li><%= link_to "Home", root_path %></li>
         <li><a href="#"><span>Story</span></a></li>
         <% if signed_in? %>
-          <li><a><span><%= link_to "My Page", current_user %></span></a></li>
+          <li><span><%= link_to "My Page", current_user %></span></li>
         <% else %>
           <li><a href="#"><span>My Page</span></a></li>
         <% end %>
-        <li><a class="last"><span><%= link_to "Contact", contact_path %></span></a></li>
+        <li><%= link_to "Contact", contact_path, class: "last" %></li>
       </ul>
     </div>
   </div>
