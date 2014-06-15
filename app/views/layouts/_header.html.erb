@@ -32,14 +32,18 @@
     </div>
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav pull-right">
-        <li><%= link_to "Home", root_path %></li>
+        <li>
+			<%= link_to root_path do %>
+				<span>Home</span>
+			<% end %>
+		</li>
         <li><a href="#"><span>Story</span></a></li>
         <% if signed_in? %>
-          <li><span><%= link_to "My Page", current_user %></span></li>
+          <li><%= link_to current_user do %><span>Story</span><% end %></li>
         <% else %>
           <li><a href="#"><span>My Page</span></a></li>
         <% end %>
-        <li><%= link_to "Contact", contact_path, class: "last" %></li>
+        <li><%= link_to contact_path, class: "last" do %><span>Contact</span><% end %></li>
       </ul>
     </div>
   </div>
