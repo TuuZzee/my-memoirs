@@ -6,8 +6,10 @@ describe "User pages" do
   subject { page }
 
   describe "index" do
+
     let(:user) { FactoryGirl.create(:user) }
-    before(:each) do
+    
+    before do
       sign_in user
       visit users_path
     end
@@ -15,6 +17,7 @@ describe "User pages" do
     it { should have_title('All users') }
     it { should have_content('All users') }
 
+    # Check the pagination
     describe "pagination" do
 
       before(:all) { 30.times { FactoryGirl.create(:user) } }
@@ -28,65 +31,88 @@ describe "User pages" do
         end
       end
     end
+
+    # For the non admin users
+    describe "delete links" do
+
+      it { should_not have_link('delete') }
+
+      # For the admin user
+      describe "as an admin user" do
+        let(:admin) { FactoryGirl.create(:admin) }
+        before do
+          sign_in admin
+          visit users_path
+        end
+
+        it { should have_link('delete', href: user_path(User.first)) }
+        it "should be able to delete another user" do
+          expect do
+            click_link('delete', match: :first)
+          end.to change(User, :count).by(-1)
+        end
+        it { should_not have_link('delete', href: user_path(admin)) }
+      end
+    end
   end
 
-
-	describe "signup page" do
+  # Test for the sign up page
+  describe "signup page" do
     before { visit signup_path }
 
     it { should have_content('Sign up') }
     it { should have_title(full_title('Sign up')) }
-	end
+  end
 
-	describe "signup" do
+  describe "signup" do
 
     before { visit signup_path }
 
     let(:submit) { "Create my account" }
 
     describe "with invalid information" do
-  		it "should not create a user" do
-    		expect { click_button submit }.not_to change(User, :count)
-  		end
+      it "should not create a user" do
+        expect { click_button submit }.not_to change(User, :count)
+      end
 
-  		describe "after submit" do
-  			before { click_button submit }
+      describe "after submit" do
+        before { click_button submit }
 
-  			it { should have_title('Sign up') }
-  			it { should have_content('error') }
-  		end
-  	end
+        it { should have_title('Sign up') }
+        it { should have_content('error') }
+     end
+   end
 
-  	describe "with valid information" do
-    	before do
-        fill_in "Name",         with: "Guillaume Becker"
-        fill_in "Email",        with: "guillaume.becker@yopmail.com"
+   describe "with valid information" do
+      before do
+        fill_in "Name",         with: "Boby Lapointe"
+        fill_in "Email",        with: "boby.lapointe@yopmail.com"
         fill_in "Password",     with: "mot2pass"
         fill_in "Confirmation", with: "mot2pass"
-    	end
+      end
 
-    	it "should create a user" do
-    		expect { click_button submit }.to change(User, :count).by(1)
-  		end
+      it "should create a user" do
+        expect { click_button submit }.to change(User, :count).by(1)
+      end
 
-  		describe "after submit" do
-  			before { click_button submit }
-  			let(:user) {User.find_by(email: 'guillaume.becker@yopmail.com') }
+      describe "after submit" do
+        before { click_button submit }
+        let(:user) {User.find_by(email: 'boby.lapointe@yopmail.com') }
 
-  			it { should have_title(user.name) }
-  			it { should have_selector('div.alert.alert-success', text: 'Welcome') }
-  		end
+        it { should have_title(user.name) }
+        it { should have_selector('div.alert.alert-success', text: 'Welcome') }
+      end
 
       describe "after saving the user" do
         before { click_button submit }
-        let(:user) { User.find_by(email: 'guillaume.becker@yopmail.com') }
+        let(:user) { User.find_by(email: 'boby.lapointe@yopmail.com') }
 
         it { should have_link("Sign out") }
         it { should have_title(user.name) }
         it { should have_selector('div.alert.alert-success') }
       end
-  	end
-	end
+    end
+  end
 
   describe "edit" do
     let(:user) { FactoryGirl.create(:user) }
