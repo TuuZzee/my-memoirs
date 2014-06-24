@@ -1,7 +1,8 @@
 class User < ActiveRecord::Base
 	# to avoid emails doublons in database
-	before_save { self.email = email.downcase }
-	before_create :create_remember_token
+	has_many		:memoirs, dependent: :destroy
+	before_save 	{ self.email = email.downcase }
+	before_create 	:create_remember_token
 
 	validates :name, 
 				presence: true, 
