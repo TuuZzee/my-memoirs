@@ -63,7 +63,11 @@ GEM
     faker (1.1.2)
       i18n (~> 0.5)
     ffi (1.9.3)
+<<<<<<< HEAD
     ffi (1.9.3-x64-mingw32)
+=======
+    growl (1.0.3)
+>>>>>>> 17c0046ae3d58aa42545eeb236f3edd56a6fc109
     hike (1.2.3)
     i18n (0.6.9)
     jbuilder (1.0.2)
@@ -174,6 +178,7 @@ DEPENDENCIES
   coffee-rails (= 4.0.1)
   factory_girl_rails (= 4.2.1)
   faker (= 1.1.2)
+  growl (= 1.0.3)
   jbuilder (= 1.0.2)
   jquery-rails (= 3.0.4)
   pg (= 0.15.1)
