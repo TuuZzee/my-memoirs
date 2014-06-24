@@ -1,24 +1,26 @@
 <% provide(:title, 'Contact') %>
-<h1>Contact</h1>
+<div class="container">
+	<h1>Contact</h1>
 
-<div class="row">
-  <div class="span6 offset3">
-    <%= form_for @message, :url => contact_path do |form| %>
-      <%= form.label :name %>
-      <%= form.text_field :name %>
+	<div class="row">
+	  <div class="span6 offset3">
+		<%= form_for @message, :url => contact_path do |form| %>
+		  <%= form.label :name %>
+		  <%= form.text_field :name %>
 
-      <%= form.label :email %>
-      <%= form.text_field :email %>
+		  <%= form.label :email %>
+		  <%= form.text_field :email %>
 
-      <%= form.label :subject %>
-      <%= form.text_field :subject %>
+		  <%= form.label :subject %>
+		  <%= form.text_field :subject %>
 
-      <%= form.label :body %>
-      <%= form.text_area :body %>
+		  <%= form.label :body %>
+		  <%= form.text_area :body %>
 
-      <fieldset class="actions">
-        <%= form.submit "Send", class: "btn btn-primary" %>
-      </fieldset>
-    <% end %>
-  </div>
+		  <fieldset class="actions">
+			<%= form.submit "Send", class: "btn btn-primary" %>
+		  </fieldset>
+		<% end %>
+	  </div>
+	</div>
 </div>

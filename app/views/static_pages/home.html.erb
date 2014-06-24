@@ -1,9 +1,155 @@
-<div class="center hero-unit">
-  <h1>Welcome to MyMemoirs!</h1>
-
-  <h2>
-   Home Page of MyMemoirs
-  </h2>
-
-  <%= link_to "Sign up now!", signup_path, class: "btn btn-large btn-primary" %>
+<div class="center hero-unit home">
+	<div class="container">
+		<div class="row mp-row"><span class="mp pull-left">Most popular</span><span class="pull-right">View all<%= image_tag("arrow_view.png", alt: "MyMemoirs", :class => "arrow") %></span></div>
+		<div class="row mp-row">
+		  <div class="col-sm-6 col-md-3 first">
+			<div class="thumbnail">
+			  <%= image_tag("img_01.png", alt: "MyMemoirs") %>
+			  <div class="caption">
+				<p class="title">First Human General Life</p>
+				<p class="text">It was a clear in Boston in Spring, when i received an urgent call from miss Becky, my intern from the lab.</p>
+			  </div>
+			  <div class="row icon-row">
+					<div class="col-md-6 icon like">
+						<%= link_to image_tag("icon_like.png", alt: "MyMemoirs"), root_path %><span>121</span>
+					</div>
+					<div class="col-md-6 icon">
+						<%= link_to image_tag("icon_share.png", alt: "MyMemoirs"), root_path %><span>54</span>
+					</div>
+				</div>
+			</div>
+		  </div>
+		  <div class="col-sm-6 col-md-3">
+			<div class="thumbnail">
+			  <%= image_tag("img_02.png", alt: "MyMemoirs") %>
+			  <div class="caption">
+				<p class="title">First Human General Life</p>
+				<p class="text">It was a clear in Boston in Spring, when i received an urgent call from miss Becky, my intern from the lab.</p>
+			  </div>
+			  <div class="row icon-row">
+					<div class="col-md-6 icon like">
+						<%= link_to image_tag("icon_like.png", alt: "MyMemoirs"), root_path %><span>121</span>
+					</div>
+					<div class="col-md-6 icon">
+						<%= link_to image_tag("icon_share.png", alt: "MyMemoirs"), root_path %><span>54</span>
+					</div>
+				</div>
+			</div>
+		  </div>
+		  <div class="col-sm-6 col-md-3">
+			<div class="thumbnail">
+			  <%= image_tag("img_03.png", alt: "MyMemoirs") %>
+			  <div class="caption">
+				<p class="title">First Human General Life</p>
+				<p class="text">It was a clear in Boston in Spring, when i received an urgent call from miss Becky, my intern from the lab.</p>
+			  </div>
+			  <div class="row icon-row">
+					<div class="col-md-6 icon like">
+						<%= link_to image_tag("icon_like.png", alt: "MyMemoirs"), root_path %><span>121</span>
+					</div>
+					<div class="col-md-6 icon">
+						<%= link_to image_tag("icon_share.png", alt: "MyMemoirs"), root_path %><span>54</span>
+					</div>
+			  </div>
+			</div>
+		  </div>
+		  <div class="col-sm-6 col-md-3">
+			<div class="thumbnail only-text">
+			  <div class="caption">
+				<p class="title">Wonderful Journey</p>
+				<p class="text">It was a clear in Boston in Spring, when i received an urgent call from miss Becky, my intern from the lab. She didn't even ask me how my weekend was, but demanded that I return to campus immediatly. When I</p>
+			  </div>
+			  <div class="row icon-row">
+					<div class="col-md-6 icon like">
+						<%= link_to image_tag("icon_like.png", alt: "MyMemoirs"), root_path %><span>121</span>
+					</div>
+					<div class="col-md-6 icon">
+						<%= link_to image_tag("icon_share.png", alt: "MyMemoirs"), root_path %><span>54</span>
+					</div>
+				</div>
+			</div>
+		  </div>
+		</div>
+		<div style="padding-top:5px;"></div>
+		<div class="row dv-row">
+			<span class="mp pull-left">Discovery</span><span class="pull-right">View all<%= image_tag("arrow_view.png", alt: "MyMemoirs", :class => "arrow") %></span>
+		</div>
+		<div class="row dv-row">
+			<div class="col-sm-6 col-md-6">
+				<div class="thumbnail">
+				  <%= image_tag("img_04.png", alt: "MyMemoirs", :class => "preview") %>
+				  <div class="caption pull-right">
+					<p class="title">How Tech Took a Bie Out</p>
+					<p class="author">by Seth Fineberg</p>
+					<p class="text">It was a clear in Boston in Spring, when i received an urgent call from miss Becky, my intern from the lab.</p>
+				  </div>
+				  <div class="row icon-row pull-right">
+					<div class="col-md-6 icon like">
+						<%= link_to image_tag("icon_like.png", alt: "MyMemoirs"), root_path %><span>121</span>
+					</div>
+					<div class="col-md-6 icon">
+						<%= link_to image_tag("icon_share.png", alt: "MyMemoirs"), root_path %><span>54</span>
+					</div>
+				</div>
+			</div>
+		  </div>
+		  <div class="col-sm-6 col-md-6 last">
+			<div class="thumbnail">
+			  <%= image_tag("img_05.png", alt: "MyMemoirs", :class => "preview") %>
+			  <div class="caption pull-right">
+				<p class="title">How Tech Took a Bie Out</p>
+				<p class="author">by Seth Fineberg</p>
+				<p class="text">It was a clear in Boston in Spring, when i received an urgent call from miss Becky, my intern from the lab.</p>
+			  </div>
+			  <div class="row icon-row pull-right">
+					<div class="col-md-6 icon like">
+						<%= link_to image_tag("icon_like.png", alt: "MyMemoirs"), root_path %><span>121</span>
+					</div>
+					<div class="col-md-6 icon">
+						<%= link_to image_tag("icon_share.png", alt: "MyMemoirs"), root_path %><span>54</span>
+					</div>
+				</div>
+			</div>
+		  </div>
+		  <div class="col-sm-6 col-md-6">
+			<div class="thumbnail">
+			  <%= image_tag("img_06.png", alt: "MyMemoirs", :class => "preview") %>
+			  <div class="caption pull-right">
+				<p class="title">How Tech Took a Bie Out</p>
+				<p class="author">by Seth Fineberg</p>
+				<p class="text">It was a clear in Boston in Spring, when i received an urgent call from miss Becky, my intern from the lab.</p>
+			  </div>
+			  <div class="row icon-row pull-right">
+					<div class="col-md-6 icon like">
+						<%= link_to image_tag("icon_like.png", alt: "MyMemoirs"), root_path %><span>121</span>
+					</div>
+					<div class="col-md-6 icon">
+						<%= link_to image_tag("icon_share.png", alt: "MyMemoirs"), root_path %><span>54</span>
+					</div>
+				</div>
+			</div>
+		  </div>
+		  <div class="col-sm-6 col-md-6 last">
+			<div class="thumbnail">
+			  <%= image_tag("img_07.png", alt: "MyMemoirs", :class => "preview") %>
+			  <div class="caption pull-right">
+				<p class="title">How Tech Took a Bie Out</p>
+				<p class="author">by Seth Fineberg</p>
+				<p class="text">It was a clear in Boston in Spring, when i received an urgent call from miss Becky, my intern from the lab.</p>
+			  </div>
+			  <div class="row icon-row pull-right">
+					<div class="col-md-6 icon like">
+						<%= link_to image_tag("icon_like.png", alt: "MyMemoirs"), root_path %><span>121</span>
+					</div>
+					<div class="col-md-6 icon">
+						<%= link_to image_tag("icon_share.png", alt: "MyMemoirs"), root_path %><span>54</span>
+					</div>
+				</div>
+			</div>
+		  </div>
+		</div>
+		<div class="ad">
+			<%= link_to image_tag("add.png", alt: "Advertisement"), root_path %>
+		</div>
+	</div>
 </div>
