@@ -43,6 +43,7 @@ body {
 
 .container {
   width: 978px;
+  padding: 0;
 }
 
 .first {
@@ -188,15 +189,12 @@ p {
 /* footer */
 
 footer {
-  margin-top: 45px;
-  padding-top: 5px;
-  border-top: 1px solid $mediumLightGrey;
+  margin-top: 50px;
   color: $lightGray;
-  a {
-    color: #555;
-    &:hover {
-      color: #222;
-    }
+  height: 170px;
+  a:hover {
+    border: none;
+	text-decoration: none;
   }
   small {
     float: left;
@@ -208,6 +206,84 @@ footer {
       float: left;
       margin-left: 10px;
     }
+  }
+  .follow {
+	float: left;
+	margin-bottom: 15px;
+	p {
+		font-size: 18px;
+		font-weight: bold;
+		color: #a3a3a3;
+	}
+  }
+  .follow-link {
+		clear: both;
+		ul {
+			float: left;
+			list-style: none;
+			padding: 0;
+			.twitter {
+				background: image-url("icon_follow_twitter_normal.png") no-repeat;
+				&:hover {
+					background-image: image-url("icon_follow_twitter_over.png");
+				}
+			}
+			.facebook {
+				background-image: image-url("icon_follow_facebook_normal.png");
+				&:hover {
+					background-image: image-url("icon_follow_facebook_over.png");
+				}
+			}
+			.tumblr {
+				background-image: image-url("icon_follow_tumblr_normal.png");
+				&:hover {
+					background-image: image-url("icon_follow_tumblr_over.png");
+				}
+			}
+			.pinterest {
+				background-image: image-url("icon_follow_pin_normal.png");
+				&:hover {
+					background-image: image-url("icon_follow_pin_over.png");
+				}
+			}
+			li {
+			  float: left;
+			  margin-left: 15px;
+			  height: 38px;
+			  width: 38px;
+			}
+		}
+	}
+  .copyright {
+	float: right;
+	margin-bottom: 20px;
+	p {
+		font-size: 11px;
+		line-height: 20px;
+		color: #989898;
+		margin: 0;
+		text-align: right;
+	}
+  }
+  .contact {
+	float: right;
+	.contact-img {
+		padding-bottom: 2px;
+		margin-right: 10px;
+		padding-right: 24px;
+		background-image: image-url("icon_contact.png");
+		&:hover {
+			background-image: image-url("icon_contact_over.png");
+		}
+	}
+	.contact-txt {
+		font-size: 16px;
+		color: #989898;
+		&:hover {
+			color: #75a7d6;
+			border-bottom:1px dotted;
+		}
+	}
   }
 }
 
@@ -332,6 +408,11 @@ input {
 	padding-left: 0;
 	height: 310px;
 	width: 237px;
+	
+}
+
+.home .container div {
+	float: left;
 }
 
 .home .col-md-6 .mp-row {

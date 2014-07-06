@@ -1,11 +1,25 @@
 <footer class="footer">
 	<div class="container">
 		<nav>
-			<ul>
-				<li><%= link_to "About", about_path %></li>
-				<li><%= link_to "Help", help_path %></li>
-				<li><%= link_to "Users", users_path %></li>
-			</ul>
+			<div class="follow">
+				<p>Follow Us</p>
+			</div>
+			<div class="copyright">
+				<p>Copyright @2014, My Memoirs Inc</p>
+				<p>All right reserved</p>
+			</div>
+			<div class="follow-link">
+				<ul>
+					<%= link_to about_path do %><li class="first twitter"></li><% end %>
+					<%= link_to about_path do %><li class="facebook"></li><% end %>
+					<%= link_to about_path do %><li class="tumblr"></li><% end %>
+					<%= link_to about_path do %><li class="pinterest"></li><% end %>
+				</ul>
+			</div>
+			<div class="contact">
+				<%= link_to help_path do %><span class="contact-img"></span><% end %>
+				<%= link_to help_path do %><span class="contact-txt">Contact Us</span><% end %>
+			</div>
 		</nav>
 	</div>
 </footer>
