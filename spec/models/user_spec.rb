@@ -11,7 +11,6 @@ describe User do
   				password_confirmation: "mot2pass")
 	end
 
-
 	subject { @user }
 
 	it { should respond_to(:name) }
@@ -22,6 +21,7 @@ describe User do
   it { should respond_to(:remember_token) }
 	it { should respond_to(:authenticate) }
   it { should respond_to(:admin) }
+  it { should respond_to(:memoirs) }
 
 	it { should be_valid }
   it { should_not be_admin }
@@ -131,4 +131,27 @@ describe User do
     it { should be_admin }
   end
 
+  describe "memoir associations" do
+
+    before { @user.save }
+    let!(:older_memoir) do
+      FactoryGirl.create(:memoir, user: @user, created_at: 1.day.ago)
+    end
+    let!(:newer_memoir) do
+      FactoryGirl.create(:memoir, user: @user, created_at: 1.hour.ago)
+    end
+
+    it "should have the right memoirs in the right order" do
+      expect(@user.memoirs.to_a).to eq [newer_memoir, older_memoir]
+    end
+
+    it "should destroy associated memoirs" do
+      memoirs = @user.memoirs.to_a
+      @user.destroy
+      expect(memoirs).not_to be_empty
+      memoirs.each do |memoir|
+        expect(Memoir.where(id: memoir.id)).to be_empty
+      end
+    end
+  end
 end

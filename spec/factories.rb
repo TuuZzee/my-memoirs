@@ -9,4 +9,9 @@ FactoryGirl.define do
 	    	admin true
 	    end
   	end
+
+  	factory :memoir do
+  		content "This is a testing memoir content"
+  		user
+  	end
 end
